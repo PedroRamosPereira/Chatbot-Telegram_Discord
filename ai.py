@@ -41,7 +41,6 @@ def limpar_historico(usuario):
     return('Historico do usuario excluido')  
     
 def responder(user, plataforma, mensagem):
-    
     salvar_mensagem(user, plataforma, "user", mensagem)
     hist = carregar_historico(user)
     
@@ -51,10 +50,6 @@ def responder(user, plataforma, mensagem):
     )
     
     resposta_texto = response.choices[0].message.content
-    
     salvar_mensagem("gpt-4o-mini", plataforma, "client", resposta_texto)
-    
-    return(resposta_texto)
 
-for row in cursor.execute('SELECT * FROM historico'):
-    print(row)
+    return(resposta_texto)
